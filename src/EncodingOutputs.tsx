@@ -22,12 +22,14 @@ const encodings = [
 
 export type EncodingOutputsProps = {
   codePoint: number | null;
+  setCodePoint: (newCodePoint: number) => void;
 };
 
 export const EncodingOutputs = memo<
   EncodingOutputsProps
 >(({
   codePoint,
+  setCodePoint,
 }) => (
   <Stack gap={1}>
     {encodings.map((encoding) => (
@@ -35,6 +37,7 @@ export const EncodingOutputs = memo<
         key={encoding}
         encoding={encoding}
         codePoint={codePoint}
+        setCodePoint={setCodePoint}
       />
     ))}
   </Stack>

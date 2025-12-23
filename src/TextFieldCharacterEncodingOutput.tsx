@@ -1,6 +1,6 @@
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
-import { memo, useEffect, useMemo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import {
   CharacterEncoding,
   getCodecByIdentifier,
@@ -22,7 +22,7 @@ export const TextFieldCharacterEncodingOutput = memo<
   encoding,
 }) => {
   const [overriddenValue, setOverriddenValue] = useState<string | null>(null);
-  
+
   const codecName = useMemo(() => {
     return getCodecName(encoding);
   }, [encoding]);
@@ -44,7 +44,7 @@ export const TextFieldCharacterEncodingOutput = memo<
     }
     return result.data;
   }, [codePoint, result, encoding]);
-  
+
   return (
     <FormControl fullWidth>
       <TextField
